@@ -1,0 +1,10 @@
+(defun remove_if (F S)
+    (cond ((null S) nil)
+          ((funcall F (car S)) (remove_if F (cdr S)))
+          ((atom (car S)) (cons (car S) (remove_if F (cdr S))))
+          (T (cons (remove_if F (car S)) (remove_if F (cdr S))))
+    )
+)
+
+(print(remove_if `null `((5()bb)c () (f))))
+(print(remove_if `numberp `((5()b)c (5) (f 9))))
